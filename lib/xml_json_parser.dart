@@ -19,9 +19,7 @@ class XmlJsonParser {
         };
       }
     }
-    if (node is Xml.XmlText) {
-      return "'${node.text}'";
-    }
+    return "'${node.text}'";
   }
 
   static List<dynamic> transform(String xmlString) {

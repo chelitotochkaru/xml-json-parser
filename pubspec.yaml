@@ -1,13 +1,14 @@
 name: xml_json_parser
 description: An XML to JSON Parser package.
-version: 0.0.1
+version: 0.0.2
 author: Marcelo Gajardo <chelito.gajardo@gmail.com>
 homepage: https://github.com/chelito-gajardo/xml-json-parser
 
+environment:
+  sdk: ">=1.8.0<2.0.0"
+
 dependencies:
-  flutter:
-    sdk: flutter
-  xml: ^3.0.0
+  xml: ">=3.0.0<4.0.0"
 
 dev_dependencies:
   flutter_test:
