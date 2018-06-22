@@ -15,9 +15,9 @@ class XmlJsonParser {
           child.add(_convertNode(currentNode));
           counter++;
         }
-        return '{"${node.name.toString()}": [${child.join(', ')}]}';
+        return '"${node.name.toString()}": {${child.join(', ')}}';
       } else {
-        return '{"${node.name.toString()}": ${_convertNode(node.children[0])}}';
+        return node.children.where((node) => !(node is Xml.XmlText)).length > 0 ? '"${node.name.toString()}": {${_convertNode(node.children[0])}}': '"${node.name.toString()}": ${_convertNode(node.children[0])}';
       }
     }
     return '"${node.text}"';
@@ -27,6 +27,6 @@ class XmlJsonParser {
     //xmlString = xmlString.replaceAll(new RegExp(r'env:|ns1:|rpc:'), '');
     Xml.XmlDocument document = Xml.parse(xmlString);
     final String jsonString = _convertNode(document.children.where((node) => node is Xml.XmlElement).first);
-    return json.decode(jsonString);
+    return json.decode('{$jsonString}');
   }
 }

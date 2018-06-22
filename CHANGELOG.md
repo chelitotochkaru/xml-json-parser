@@ -1,3 +1,7 @@
+## [1.0.0] - 06/22/2018
+
+* The JSON returned had wrong format. Now respeects the XML structure.
+
 ## [0.0.3] - 06/22/2018
 
 * The transform() method now returns a Map<String, dynamic> object.
